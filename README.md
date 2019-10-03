@@ -1,55 +1,25 @@
-# Phaser 3 Webpack Project Template
+# Phaser 3 physics Example
 
-A Phaser 3 project template with ES6 support via [Babel 7](https://babeljs.io/) and [Webpack 4](https://webpack.js.org/)
-that includes hot-reloading for development and production-ready builds.
+Based on: https://github.com/photonstorm/phaser3-project-template
 
-Loading images via JavaScript module `import` is also supported.
+## Features used
+Below is a list of the features used, followed by explanations for their usages.
 
-## Requirements
+* Matter composite physics
+* Matter compound bodies
+* Phaser3 "Graphics" module
+* Phaser3 container objects
 
-[Node.js](https://nodejs.org) is required to install dependencies and run scripts via `npm`.
+### Matter composite physics
+Used to combine the 3 wheels with the truck body.
+The vehicle is only controlled by turning the wheels
 
-## Available Commands
+### Matter compound bodies
+Two rectangle objects are combined - the front part of the truck and the lower part of the truck
 
-| Command | Description |
-|---------|-------------|
-| `npm install` | Install project dependencies |
-| `npm start` | Build project and open web server running project |
-| `npm run build` | Builds code bundle with production settings (minification, uglification, etc..) |
+### Phaser3 "Graphics" module
+This is used to draw the terrain shapes
 
-## Writing Code
-
-After cloning the repo, run `npm install` from your project directory. Then, you can start the local development
-server by running `npm start`.
-
-
-After starting the development server with `npm start`, you can edit any files in the `src` folder
-and webpack will automatically recompile and reload your server (available at `http://localhost:8080`
-by default).
-
-## Customizing Template
-
-### Babel
-You can write modern ES6+ JavaScript and Babel will transpile it to a version of JavaScript that you
-want your project to support. The targeted browsers are set in the `.babelrc` file and the default currently
-targets all browsers with total usage over "0.25%" but excludes IE11 and Opera Mini.
-
-  ```
-  "browsers": [
-    ">0.25%",
-    "not ie 11",
-    "not op_mini all"
-  ]
-  ```
-
-### Webpack
-If you want to customize your build, such as adding a new webpack loader or plugin (i.e. for loading CSS or fonts), you can
-modify the `webpack/base.js` file for cross-project changes, or you can modify and/or create
-new configuration files and target them in specific npm tasks inside of `package.json'.
-
-## Deploying Code
-After you run the `npm run build` command, your code will be built into a single bundle located at 
-`dist/bundle.min.js` along with any other assets you project depended. 
-
-If you put the contents of the `dist` folder in a publicly-accessible location (say something like `http://mycoolserver.com`), 
-you should be able to open `http://mycoolserver.com/index.html` and play your game.
+### Phaser3 container objects
+This is used to combine all the truck sprites into one object
+The truck is made of many sprites to enable custom colours for each part.
