@@ -104,10 +104,16 @@ function createRoadSection() {
 
 function createTruck(spriteKeys, x, y) {
   const children = spriteKeys.map(key => this.add.image(0, 0, key));
-  children[0].setTint(0x33ff88);
-  children[1].setTint(0x33ff88);
+
+  const r = Math.floor(Math.random() * 255);
+  const g = Math.floor(Math.random() * 255);
+  const b = Math.floor(Math.random() * 255);
+  const tyre = Math.floor(Math.random() * 50);
+  const bodyColour = Phaser.Display.Color.GetColor(r, g, b);
+  children[0].setTint(bodyColour);
+  children[1].setTint(bodyColour);
   children[2].setTint(0x888888);
-  children[3].setTint(0x111111);
+  children[3].setTint(Phaser.Display.Color.GetColor(tyre, tyre, tyre));
   
   const wheelAOffset = -40, wheelBOffset = -27, wheelCOffset = 12;
   const wheelYOffset = 18;
