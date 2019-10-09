@@ -205,7 +205,7 @@ function createTruck(spriteKeys, x, y) {
 }
 
 function loadTruckAsset(type) {
-  const truckBase = "./assets/";
+  const truckBase = "./assets";
   const truckParts = [
       "front",
       "back",
