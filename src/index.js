@@ -1,6 +1,5 @@
 import Phaser from "phaser";
-import logoImg from "./assets/logo.png";
-import roadImg from "./assets/road.png";
+
 
 var Matter = Phaser.Physics.Matter.Matter;
 
@@ -27,8 +26,6 @@ let truckSprites;
 let truck;
 
 function preload() {
-  this.load.image("logo", logoImg);
-  this.load.image("road", roadImg);
   truckSprites = loadTruckAsset.call(this, "basic");
 }
 
@@ -37,7 +34,8 @@ function create() {
   truck = createTruck.call(this, truckSprites, 400, 100);
   // truck.setMass(10);
   
-  this.scene.scene.cameras.main.startFollow(truck.container);
+  this.cameras.main.startFollow(truck.container);
+  this.cameras.main.setBackgroundColor('#3366ff')
 }
 
 function update() {
@@ -68,7 +66,7 @@ function createRoadSection() {
   })
   const pointsBottom = Array(numPoints)
     .fill()
-    .map((_, i) => ({x: (numPoints - (i + 1)) * pointsStep, y: 500}));
+    .map((_, i) => ({x: (numPoints - (i + 1)) * pointsStep, y: 700}));
 
   const points = [...pointsTop, ...pointsBottom];
   points[0] = {x: 0, y: 0};
@@ -82,7 +80,7 @@ function createRoadSection() {
   const graphics = this.add.graphics(
     {
       fillStyle: {
-        color: 0x1a1103,
+        color: 0x441205,
         alpha: 1
       }
     }
@@ -109,7 +107,7 @@ function createTruck(spriteKeys, x, y) {
   children[0].setTint(0x33ff88);
   children[1].setTint(0x33ff88);
   children[2].setTint(0x888888);
-  children[3].setTint(0x333333);
+  children[3].setTint(0x111111);
   
   const wheelAOffset = -40, wheelBOffset = -27, wheelCOffset = 12;
   const wheelYOffset = 18;
@@ -207,7 +205,7 @@ function createTruck(spriteKeys, x, y) {
 }
 
 function loadTruckAsset(type) {
-  const truckBase = "./src/assets/";
+  const truckBase = "./assets/";
   const truckParts = [
       "front",
       "back",
